@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated Student ID Card Generator — Interactive Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Manrope', sans-serif; background: #eef4f3; color: #122630; min-height: 100vh; }
+    .ribbon { background: #122630; color: #72d6c9; font-size: 11px; text-align: center; padding: 7px 12px; font-weight: 700; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .ribbon a { color: #fff; text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 26px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .panel { background: #fff; border: 1px solid rgba(18,38,48,.1); border-radius: 20px; padding: 22px; box-shadow: 0 18px 40px -28px rgba(18,38,48,.25); }
+    h1 { font-size: 20px; margin-bottom: 6px; }
+    p.sub { font-size: 12px; color: #5b727d; margin-bottom: 18px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #47606b; margin-bottom: 4px; }
+    .field input, .field select { width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid #d4e0e2; font-family: inherit; font-size: 13px; }
+    .btn { width: 100%; background: #0f766e; color: #fff; border: none; padding: 11px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 6px; }
+    .id-stage { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .id-card { width: 290px; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 48px -20px rgba(15,118,110,.35); border: 1px solid rgba(15,118,110,.18); }
+    .id-top { background: linear-gradient(135deg,#0f766e,#115e59); color: #fff; padding: 16px; text-align: center; }
+    .id-top small { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .88; display: block; }
+    .id-top strong { font-size: 14px; display: block; margin-top: 3px; }
+    .id-body { padding: 18px 18px 14px; text-align: center; }
+    .avatar { width: 78px; height: 78px; border-radius: 50%; margin: -42px auto 10px; background: linear-gradient(135deg,#0e7490,#34d399); border: 4px solid #fff; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 24px; box-shadow: 0 8px 20px rgba(15,118,110,.25); }
+    .id-name { font-size: 17px; font-weight: 800; color: #0f242c; }
+    .id-role { font-size: 12px; color: #0f766e; font-weight: 700; margin-top: 2px; }
+    .id-meta { margin-top: 14px; text-align: left; background: #f4f8f7; border-radius: 12px; padding: 10px 12px; font-size: 11px; display: grid; gap: 6px; }
+    .id-row { display: flex; justify-content: space-between; }
+    .id-row span { color: #5f757f; }
+    .id-foot { background: #0f242c; color: #bceae3; font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 9px 14px; display: flex; justify-content: space-between; }
+    @media (max-width: 760px) { .wrap { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ribbon">
+    <span>Instant Interactive Preview — Student ID Card Portal</span>
+    <a href="https://student-id-portal-1.onrender.com" target="_blank" rel="noopener noreferrer">Launch Live Render Cloud App ↗</a>
+  </div>
+  <div class="wrap">
+    <div class="panel">
+      <h1>Student ID Card Generator</h1>
+      <p class="sub">Type in any field to see the live print-ready student identity card update in real time.</p>
+      <div class="field"><label for="s-name">Student Full Name</label><input id="s-name" value="Jayed Jaman Seen"></div>
+      <div class="field"><label for="s-batch">Program / Batch</label><input id="s-batch" value="DYD Freelancing & ICT — 8th Batch"></div>
+      <div class="field"><label for="s-id">Roll / ID Number</label><input id="s-id" value="DYD-BAR-2026-018"></div>
+      <div class="field">
+        <label for="s-blood">Blood Group</label>
+        <select id="s-blood"><option>B+</option><option>O+</option><option>A+</option><option>AB+</option></select>
+      </div>
+      <button class="btn" onclick="window.print()">Print / Save ID Card PDF</button>
+    </div>
+
+    <div class="id-stage">
+      <div class="id-card">
+        <div class="id-top">
+          <small>Department of Youth Development</small>
+          <strong>Barishal ICT &amp; Freelancing</strong>
+        </div>
+        <div class="id-body">
+          <div class="avatar" id="c-initials">JJ</div>
+          <div class="id-name" id="c-name">Jayed Jaman Seen</div>
+          <div class="id-role" id="c-batch">DYD Freelancing &amp; ICT — 8th Batch</div>
+          <div class="id-meta">
+            <div class="id-row"><span>Student ID</span><strong id="c-id">DYD-BAR-2026-018</strong></div>
+            <div class="id-row"><span>Blood Group</span><strong id="c-blood">B+</strong></div>
+            <div class="id-row"><span>Status</span><strong style="color:#0f766e">Verified Active</strong></div>
+          </div>
+        </div>
+        <div class="id-foot"><span>PRINT-READY 300DPI</span><span>2026</span></div>
+      </div>
+      <p style="font-size:11px;color:#5b727d;text-align:center;max-width:290px">Zero-wait local preview built into the portfolio so clients see the UI immediately even while the Render free tier wakes up.</p>
+    </div>
+  </div>
+  <script>
+    function syncCard() {
+      const name = document.getElementById('s-name').value.trim() || 'Student Name';
+      document.getElementById('c-name').textContent = name;
+      document.getElementById('c-batch').textContent = document.getElementById('s-batch').value.trim() || 'Program';
+      document.getElementById('c-id').textContent = document.getElementById('s-id').value.trim() || 'ID-001';
+      document.getElementById('c-blood').textContent = document.getElementById('s-blood').value;
+      const parts = name.split(/\s+/).filter(Boolean);
+      document.getElementById('c-initials').textContent = (parts[0]?.[0] || 'S') + (parts[1]?.[0] || '');
+    }
+    ['s-name','s-batch','s-id','s-blood'].forEach(id => document.getElementById(id).addEventListener('input', syncCard));
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseRank AI — SEO Audit &amp; Lead Generation Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Manrope', sans-serif; background: #0c1418; color: #ecf4f3; padding-bottom: 40px; }
+    .ribbon { background: linear-gradient(90deg,#0f766e,#0e7490); color: #fff; font-size: 11px; text-align: center; padding: 6px 12px; font-weight: 700; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 24px 20px; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .brand { font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #34d399; box-shadow: 0 0 12px #34d399; }
+    .chip { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 5px 10px; border-radius: 999px; background: rgba(114,214,201,.14); color: #72d6c9; border: 1px solid rgba(114,214,201,.3); }
+    .search-panel { background: #131f24; border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 22px; margin-bottom: 20px; }
+    .search-panel h1 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 8px; }
+    .search-panel p { color: #9ab0b3; font-size: 13px; margin-bottom: 16px; }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; }
+    select, button { font-family: inherit; font-size: 13px; border-radius: 12px; padding: 10px 14px; }
+    select { background: #0c1418; color: #fff; border: 1px solid rgba(255,255,255,.15); flex: 1; min-width: 220px; }
+    .run-btn { background: #72d6c9; color: #091316; border: none; font-weight: 800; cursor: pointer; }
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+    .kpi { background: #131f24; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 16px; }
+    .kpi small { font-size: 11px; color: #8da4a8; display: block; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
+    .kpi strong { font-size: 24px; color: #72d6c9; }
+    .table-card { background: #131f24; border: 1px solid rgba(255,255,255,.1); border-radius: 20px; overflow: hidden; }
+    .table-head { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 13px 18px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    th { font-size: 11px; text-transform: uppercase; color: #8da4a8; font-family: 'JetBrains Mono', monospace; }
+    .intent { padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .intent.buy { background: rgba(52,211,153,.16); color: #6ee7b7; }
+    .intent.com { background: rgba(56,189,248,.16); color: #7dd3fc; }
+    @media (max-width: 720px) { .kpis { grid-template-columns: repeat(2, 1fr); } th:nth-child(4), td:nth-child(4) { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="ribbon">Interactive AI SEO &amp; B2B Lead Generation Showcase — Built by Jayed Jaman Seen</div>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><span class="dot"></span> PulseRank AI Studio</div>
+      <span class="chip">Rank Math • SEMrush • Lead Ops</span>
+    </div>
+
+    <div class="search-panel">
+      <h1>Keyword Opportunity &amp; Prospect Intelligence</h1>
+      <p>Switch client niches below to inspect a live sample of Jayed's keyword intent clustering, difficulty scoring, and outreach-ready B2B lead tables.</p>
+      <div class="controls">
+        <select id="niche-select">
+          <option value="dental">Local Dental Clinics (US / UK)</option>
+          <option value="ecommerce">Boutique Coffee &amp; E-Commerce</option>
+          <option value="agency">WordPress &amp; Digital Agencies</option>
+        </select>
+        <button class="run-btn" id="refresh-btn">Analyze Niche ↗</button>
+      </div>
+    </div>
+
+    <div class="kpis" id="kpi-row"></div>
+
+    <div class="table-card">
+      <div class="table-head">
+        <strong id="table-title">High-Intent Keyword &amp; Content Roadmap</strong>
+        <span class="chip" id="audit-badge">Low-KD Quick Wins</span>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Target Keyword</th><th>Monthly Vol.</th><th>KD Score</th><th>Search Intent</th><th>Recommended Page</th></tr>
+        </thead>
+        <tbody id="kw-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const DATA = {
+      dental: {
+        kpis: [["Target Keywords","148"],["Avg. Keyword Diff.","22 / 100"],["Verified B2B Leads","250+"],["Est. Traffic Lift","+180%"]],
+        rows: [
+          ["emergency dentist near me open sunday","8,100","24","Transactional","Service Landing Page"],
+          ["invisalign cost payment plan","6,600","28","Commercial","Pricing + FAQ Page"],
+          ["pediatric dental clinic booking","3,900","18","Transactional","Local SEO Page"],
+          ["teeth whitening sensitive gums","4,400","19","Commercial","Blog + Lead Magnet"]
+        ]
+      },
+      ecommerce: {
+        kpis: [["Target Keywords","210"],["Avg. Keyword Diff.","26 / 100"],["Product Clusters","18"],["Checkout Speed","1.1s"]],
+        rows: [
+          ["single origin ethiopian coffee beans","9,900","29","Transactional","WooCommerce Product"],
+          ["best pour over kettle for beginners","5,400","21","Commercial","Buying Guide + CTA"],
+          ["organic coffee gift box subscription","4,200","24","Transactional","Bundle Landing Page"],
+          ["fresh roasted espresso beans delivery","7,200","31","Transactional","Category Hub"]
+        ]
+      },
+      agency: {
+        kpis: [["Target Keywords","125"],["Avg. Keyword Diff.","25 / 100"],["Agency Prospects","320+"],["Email Verification","98.4%"]],
+        rows: [
+          ["wordpress speed optimization service","4,800","27","Transactional","Core Service Page"],
+          ["elementor landing page designer","3,600","22","Transactional","Fiverr / Service Hub"],
+          ["woocommerce store setup checklist","2,900","16","Commercial","Lead Magnet Guide"],
+          ["ai website automation for small business","3,100","19","Commercial","Case Study Page"]
+        ]
+      }
+    };
+    function renderNiche() {
+      const key = document.getElementById("niche-select").value;
+      const d = DATA[key];
+      document.getElementById("kpi-row").innerHTML = d.kpis.map(([l,v]) => `<div class="kpi"><small>${l}</small><strong>${v}</strong></div>`).join("");
+      document.getElementById("kw-body").innerHTML = d.rows.map(([kw,vol,kd,intent,page]) => `
+        <tr>
+          <td><strong>${kw}</strong></td>
+          <td style="font-family:'JetBrains Mono',monospace">${vol}</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#72d6c9">${kd}</td>
+          <td><span class="intent ${intent==='Transactional'?'buy':'com'}">${intent}</span></td>
+          <td style="color:#b2c4c7">${page}</td>
+        </tr>
+      `).join("");
+    }
+    document.getElementById("niche-select").addEventListener("change", renderNiche);
+    document.getElementById("refresh-btn").addEventListener("click", renderNiche);
+    renderNiche();
+  </script>
+</body>
+</html>

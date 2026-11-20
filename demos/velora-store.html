@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velora Roasters — WooCommerce Storefront Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Manrope', sans-serif; background: #faf8f5; color: #1c1917; }
+    .ribbon { background: #1c1917; color: #f5d0a9; font-size: 11px; text-align: center; padding: 6px 12px; font-weight: 600; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(250,248,245,.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(28,25,23,.08); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    .nav { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 800; font-size: 18px; letter-spacing: .04em; color: #1c1917; text-decoration: none; }
+    .cart-btn { background: #1c1917; color: #fff; border: none; padding: 9px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+    .cart-count { background: #d97706; color: #fff; padding: 1px 7px; border-radius: 999px; font-size: 11px; }
+    .hero { margin: 24px 0 32px; background: linear-gradient(125deg, #292524 0%, #44403c 55%, #78350f 100%); color: #fff; border-radius: 24px; padding: 38px 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .hero h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.12; margin: 10px 0 12px; }
+    .hero p { color: #d6d3d1; max-width: 480px; font-size: 14px; }
+    .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(245,208,169,.18); color: #fcd34d; font-size: 11px; font-weight: 700; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .fbtn { padding: 8px 14px; border-radius: 999px; border: 1px solid #e7e5e4; background: #fff; font-size: 12px; font-weight: 700; cursor: pointer; color: #57534e; }
+    .fbtn.active { background: #1c1917; color: #fff; border-color: #1c1917; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-bottom: 48px; }
+    .product { background: #fff; border: 1px solid #e7e5e4; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: .2s ease; }
+    .product:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -20px rgba(28,25,23,.25); }
+    .thumb { height: 150px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; position: relative; }
+    .tag { position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,.92); color: #1c1917; font-size: 10px; padding: 3px 8px; border-radius: 999px; font-weight: 800; }
+    .p-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .p-body h3 { font-size: 15px; }
+    .p-body p { font-size: 12px; color: #78716c; flex: 1; }
+    .p-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+    .price { font-size: 17px; font-weight: 800; color: #1c1917; }
+    .add-btn { background: #0f766e; color: #fff; border: none; padding: 8px 13px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .add-btn:hover { background: #0b5d57; }
+    .drawer-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; justify-content: flex-end; z-index: 40; }
+    .drawer-backdrop.open { display: flex; }
+    .drawer { width: min(360px, 92vw); background: #fff; height: 100%; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; }
+    .drawer-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e7e5e4; padding-bottom: 12px; }
+    .cart-items { flex: 1; overflow-y: auto; padding: 14px 0; display: flex; flex-direction: column; gap: 10px; }
+    .cart-row { display: flex; justify-content: space-between; align-items: center; background: #faf8f5; padding: 10px 12px; border-radius: 12px; font-size: 13px; }
+    .checkout-btn { width: 100%; background: #1c1917; color: #fff; border: none; padding: 12px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ribbon">Interactive WooCommerce E-Commerce Showcase — Add Items to Test Live Cart</div>
+  <header>
+    <div class="wrap nav">
+      <a href="#" class="brand">VELORA ROASTERS</a>
+      <button class="cart-btn" id="open-cart">Bag <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="pill">WOOCOMMERCE STOREFRONT CONCEPT</span>
+        <h1>Small-batch coffee, built for high conversion.</h1>
+        <p>Responsive product cards, instant category filtering, slide-out cart UX, and clean checkout architecture tailored for WooCommerce brands.</p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:28px;font-weight:800;color:#fcd34d">4.9 ★</div>
+        <div style="font-size:12px;color:#d6d3d1">Conversion-Optimized Store UX</div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <div class="filters">
+        <button class="fbtn active" data-cat="all">All Products</button>
+        <button class="fbtn" data-cat="beans">Single Origin</button>
+        <button class="fbtn" data-cat="gear">Brew Gear</button>
+        <button class="fbtn" data-cat="bundles">Gift Bundles</button>
+      </div>
+      <span style="font-size:12px;color:#78716c;font-weight:600">Free Shipping Over $45</span>
+    </div>
+
+    <div class="grid" id="product-grid"></div>
+  </main>
+
+  <div class="drawer-backdrop" id="cart-drawer">
+    <div class="drawer">
+      <div class="drawer-head">
+        <strong>Your Shopping Bag</strong>
+        <button id="close-cart" style="border:none;background:#f5f5f4;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div style="border-top:1px solid #e7e5e4;padding-top:14px">
+        <div style="display:flex;justify-content:space-between;font-weight:800;font-size:16px">
+          <span>Subtotal</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Proceed to WooCommerce Checkout →</button>
+        <div id="checkout-msg" style="font-size:12px;color:#0f766e;margin-top:8px;font-weight:600"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PRODUCTS = [
+      { id: 1, name: "Ethiopian Yirgacheffe", cat: "beans", price: 22, tag: "Bestseller", desc: "Floral jasmine, bergamot & honey finish. Medium-light roast.", bg: "linear-gradient(135deg,#78350f,#b45309)" },
+      { id: 2, name: "Velvet Espresso Blend", cat: "beans", price: 24, tag: "Rich Crema", desc: "Dark chocolate, toasted hazelnut & brown sugar notes.", bg: "linear-gradient(135deg,#292524,#57534e)" },
+      { id: 3, name: "Precision Pour-Over Kettle", cat: "gear", price: 58, tag: "New Arrival", desc: "Matte black gooseneck kettle with built-in brew thermometer.", bg: "linear-gradient(135deg,#0f766e,#115e59)" },
+      { id: 4, name: "Ceramic Dripper Set", cat: "gear", price: 34, tag: "Handcrafted", desc: "Heat-retaining ribbed ceramic dripper + 40 organic filters.", bg: "linear-gradient(135deg,#334155,#475569)" },
+      { id: 5, name: "Barista Morning Bundle", cat: "bundles", price: 64, tag: "Save 15%", desc: "Two signature roasts paired with our handcrafted tasting cup.", bg: "linear-gradient(135deg,#92400e,#0f766e)" },
+      { id: 6, name: "Cold Brew Tasting Box", cat: "bundles", price: 39, tag: "Limited", desc: "Three smooth cold-steep single-origin packs for busy mornings.", bg: "linear-gradient(135deg,#1e3a5f,#0e7490)" }
+    ];
+    let activeCat = "all";
+    const cart = [];
+    function renderProducts() {
+      const list = activeCat === "all" ? PRODUCTS : PRODUCTS.filter(p => p.cat === activeCat);
+      document.getElementById("product-grid").innerHTML = list.map(p => `
+        <article class="product">
+          <div class="thumb" style="background:${p.bg}"><span class="tag">${p.tag}</span><span>${p.cat}</span></div>
+          <div class="p-body">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <div class="p-foot">
+              <span class="price">$${p.price}.00</span>
+              <button class="add-btn" onclick="addToCart(${p.id})">+ Add to Bag</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+    function renderCart() {
+      document.getElementById("cart-count").textContent = cart.reduce((a, b) => a + b.qty, 0);
+      const total = cart.reduce((a, b) => a + b.price * b.qty, 0);
+      document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+      document.getElementById("cart-items").innerHTML = cart.length ? cart.map(item => `
+        <div class="cart-row">
+          <div><strong>${item.name}</strong><div style="font-size:11px;color:#78716c">$${item.price} × ${item.qty}</div></div>
+          <button onclick="removeFromCart(${item.id})" style="border:none;background:#fee2e2;color:#b91c1c;padding:4px 8px;border-radius:8px;cursor:pointer;font-size:11px;font-weight:700">Remove</button>
+        </div>
+      `).join("") : `<p style="color:#78716c;font-size:13px">Your bag is empty. Click "+ Add to Bag" on any product to test the live cart.</p>`;
+    }
+    window.addToCart = id => {
+      const p = PRODUCTS.find(x => x.id === id);
+      const existing = cart.find(x => x.id === id);
+      if (existing) existing.qty++;
+      else cart.push({ ...p, qty: 1 });
+      renderCart();
+      document.getElementById("cart-drawer").classList.add("open");
+    };
+    window.removeFromCart = id => {
+      const idx = cart.findIndex(x => x.id === id);
+      if (idx > -1) cart.splice(idx, 1);
+      renderCart();
+    };
+    document.querySelectorAll(".fbtn").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".fbtn").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      activeCat = b.dataset.cat;
+      renderProducts();
+    }));
+    document.getElementById("open-cart").onclick = () => document.getElementById("cart-drawer").classList.add("open");
+    document.getElementById("close-cart").onclick = () => document.getElementById("cart-drawer").classList.remove("open");
+    document.getElementById("checkout-btn").onclick = () => {
+      document.getElementById("checkout-msg").textContent = cart.length
+        ? "Demo checkout ready! Stripe, PayPal, or SSLCommerz connects here in production."
+        : "Add at least one item first.";
+    };
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>

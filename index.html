@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jayed Jaman Seen — WordPress, WooCommerce & AI Web Designer. Interactive 3D Portfolio." />
+  <title>Jayed Jaman Seen — WordPress, WooCommerce &amp; AI Web Designer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Crect width='64' height='48' rx='10' fill='%23000000'/%3E%3Cpath d='M55 11L51 14.5V22.5H45.5V12.5L41.5 16V22.5H36V13.5L32 17V24.5C32 30.8 27.6 34.5 21.5 34.5C15.8 34.5 12 31.2 12 25.5V20L8 23.5V26C8 34.2 13.8 39 21.6 39C30.1 39 36 33.4 36 26.5H55V11Z' fill='%232dd4bf'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Custom Glowing Cursor & Soft Mouse Background Aura -->
+  <div class="mouse-aura" id="mouse-aura" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Subtle Animated Top-Right Corner Glow & Unified Continuous Dark Ambient Tint -->
+  <div class="hero-corner-glow" aria-hidden="true"></div>
+  <div class="side-glow side-glow-left" aria-hidden="true"></div>
+  <div class="side-glow side-glow-right" aria-hidden="true"></div>
+
+  <!-- ==================== PERSISTENT MINIMAL TOP HEADER ==================== -->
+  <header class="top-header no-print">
+    <a href="#landing" class="header-logo" aria-label="Jayed Jaman Seen Home">
+      <span class="seen-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M55 11L51 14.5V22.5H45.5V12.5L41.5 16V22.5H36V13.5L32 17V24.5C32 30.8 27.6 34.5 21.5 34.5C15.8 34.5 12 31.2 12 25.5V20L8 23.5V26C8 34.2 13.8 39 21.6 39C30.1 39 36 33.4 36 26.5H55V11Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">JJS</span>
+    </a>
+
+    <button type="button" class="header-email" id="copy-header-email" title="Click to copy email">
+      thunderseen@gmail.com
+    </button>
+
+    <nav class="header-nav" id="header-nav" aria-label="Primary Navigation">
+      <a href="#about" class="nav-item">ABOUT</a>
+      <a href="#studio" class="nav-item">STUDIO</a>
+      <a href="#work" class="nav-item">WORK</a>
+      <a href="#techstack" class="nav-item">STACK</a>
+      <a href="#contact" class="nav-item">CONTACT</a>
+    </nav>
+
+    <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ==================== FIXED BOTTOM-LEFT SOCIAL RAIL ==================== -->
+  <aside class="social-rail no-print" aria-label="Social Links">
+    <a href="https://github.com/JJSEEN" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.5-1.3-1.22-1.64-1.22-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.71 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.16a10.7 10.7 0 0 1 5.6 0c2.13-1.46 3.08-1.16 3.08-1.16.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.03 0 4.32-2.64 5.28-5.15 5.56.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/jayed-jaman-seen-b540b8334/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56c0 .95.79 1.72 1.77 1.72h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+    </a>
+    <a href="https://x.com/JayedJamanSeen" target="_blank" rel="noopener noreferrer" aria-label="X" title="X / Twitter">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.59-6.64 7.59H.47l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.49 3.24H4.3z"/></svg>
+    </a>
+    <a href="https://www.fiverr.com/jayedjaman_seen?public_mode=true" target="_blank" rel="noopener noreferrer" aria-label="Fiverr" title="Order on Fiverr">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V9.5C6 6.5 7.6 4 11 4h2.5M4 10h10m-8 0v10m8-10v10m0-4h5"/><circle cx="18" cy="10" r="1.2" fill="currentColor"/></svg>
+    </a>
+  </aside>
+
+  <!-- ==================== FIXED BOTTOM-RIGHT RESUME BUTTON ==================== -->
+  <button type="button" class="resume-corner-btn no-print" id="open-resume-modal">
+    <span>RESUME</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+  </button>
+
+  <main class="main-scroll">
+    <!-- ==================== 1. SOLID PURE-BLACK MINIMAL HERO ==================== -->
+    <section id="landing" class="landing-section">
+      <div class="hero-pure-center">
+        <div class="reveal-mask">
+          <p class="landing-hello hero-anim" id="hero-greeting">Hello, I'm</p>
+        </div>
+
+        <div class="reveal-mask">
+          <h1 class="hero-mega-name hero-anim">
+            <span id="hero-first">JAYED</span>
+            <span class="accent-gradient" id="hero-last">JAMAN SEEN</span>
+          </h1>
+        </div>
+
+        <div class="reveal-mask">
+          <p class="hero-tagline hero-anim" id="hero-role">
+            WordPress, WooCommerce &amp; <span class="gold-accent">AI Web Designer</span>
+          </p>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue hero-anim" aria-label="Scroll to explore">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </a>
+    </section>
+
+    <!-- ==================== 2. ABOUT ME — REAL RIGGED 3D GLB MODEL + SIDE-BY-SIDE ==================== -->
+    <section id="about" class="about-section">
+      <div class="about-grid">
+        <!-- LEFT: Jayed's Original Photo — Still, Undistorted, 100% Borderless Into Solid Black -->
+        <div class="avatar-column gsap-fade">
+          <div class="avatar-borderless-wrap">
+            <img src="assets/jayed-black.jpg" alt="Jayed Jaman Seen" class="avatar-still-img" id="avatar-still-img" />
+          </div>
+        </div>
+
+        <!-- RIGHT: Airy Side-by-Side About Me Content -->
+        <div class="about-content">
+          <div class="reveal-mask"><h3 class="eyebrow-label gsap-line">ABOUT ME</h3></div>
+          <div class="reveal-mask">
+            <p class="about-lead gsap-line" id="about-lead">
+              I blend <strong>technical web craft</strong> with practical AI workflows and clean SEO foundations.
+            </p>
+          </div>
+          <p class="about-body gsap-fade" id="about-body">
+            I'm <strong>Jayed Jaman Seen</strong> — a WordPress &amp; WooCommerce developer and B.Sc. Computer Science &amp; Engineering undergraduate from Barishal, Bangladesh. Backed by 5+ years of real digital brand operations, BCC certified AI training, and 600-Hr DYD Freelancing training (elected 1st-Month CR), I build websites that look distinct, load fast on mobile, and stay effortless to manage.
+          </p>
+
+          <div class="about-quick-facts gsap-fade">
+            <div class="about-fact">
+              <strong>IELTS 6.5</strong>
+              <span>CEFR B2 · DET 90/160</span>
+            </div>
+            <div class="about-fact">
+              <strong>3–7 Days</strong>
+              <span>Structured Live Previews</span>
+            </div>
+            <div class="about-fact">
+              <strong>5+ Years</strong>
+              <span>Digital Brand &amp; Growth</span>
+            </div>
+            <div class="about-fact">
+              <strong>600-Hr DYD</strong>
+              <span>1st-Month CR · BCC AI</span>
+            </div>
+          </div>
+
+          <div class="about-cta-strip gsap-fade">
+            <a href="https://www.fiverr.com/jayedjaman_seen?public_mode=true" target="_blank" rel="noopener noreferrer" class="minimal-cta cta-accent" id="about-fiverr-link">Order on Fiverr ↗</a>
+            <a href="https://wa.me/8801307758119?text=Hi%20Jayed%2C%20I%20saw%20your%203D%20portfolio." target="_blank" rel="noopener noreferrer" class="minimal-cta" id="about-wa-link">WhatsApp ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. MULTI-LAYER STUDIO TABS (AIRY & UNCLUTTERED) ==================== -->
+    <section id="studio" class="studio-section">
+      <div class="studio-container">
+        <div class="studio-head">
+          <div class="reveal-mask"><span class="eyebrow-label gsap-line">MULTI-LAYER EXPLORER</span></div>
+          <div class="reveal-mask"><h2 class="section-heading gsap-line">Capabilities, Journey &amp; <span class="emerald-accent">Packages</span></h2></div>
+          <p class="section-sub gsap-fade">Switch between clean layers below so every detail stays spacious and easy to read on any screen.</p>
+        </div>
+
+        <!-- Layer Switcher Tabs -->
+        <div class="layer-tabs gsap-fade" role="tablist" aria-label="Portfolio Layers">
+          <button type="button" class="layer-tab active" role="tab" aria-selected="true" data-layer="whatido">01 · What I Do</button>
+          <button type="button" class="layer-tab" role="tab" aria-selected="false" data-layer="career">02 · Career &amp; Education</button>
+          <button type="button" class="layer-tab" role="tab" aria-selected="false" data-layer="packages">03 · Packages &amp; Estimator</button>
+        </div>
+
+        <!-- LAYER 1: WHAT I DO -->
+        <div class="layer-panel active" id="layer-whatido" role="tabpanel">
+          <div class="whatido-grid">
+            <div class="bracket-card active" data-bracket-card>
+              <span class="corner tl"></span><span class="corner tr"></span>
+              <span class="corner bl"></span><span class="corner br"></span>
+              <div class="bracket-head">
+                <h3>DEVELOP</h3>
+                <span class="bracket-arrow">↗</span>
+              </div>
+              <h4 class="bracket-sub">WordPress, WooCommerce &amp; AI Web Apps</h4>
+              <p class="bracket-desc">
+                Clean WordPress builds, custom Elementor &amp; Gutenberg layouts, child themes, CPT/ACF architecture, WooCommerce checkout flows, and AI-assisted cloud web apps deployed on Render &amp; GitHub Pages.
+              </p>
+              <div class="bracket-tags">
+                <span>WordPress</span><span>Elementor</span><span>WooCommerce</span><span>Gutenberg</span>
+                <span>CPT &amp; ACF</span><span>HTML / CSS / JS</span><span>ChatGPT &amp; Claude</span><span>Gemini &amp; Codex</span>
+              </div>
+            </div>
+
+            <div class="bracket-card" data-bracket-card>
+              <span class="corner tl"></span><span class="corner tr"></span>
+              <span class="corner bl"></span><span class="corner br"></span>
+              <div class="bracket-head">
+                <h3>DESIGN &amp; SEO</h3>
+                <span class="bracket-arrow">↗</span>
+              </div>
+              <h4 class="bracket-sub">Conversion UI, Technical SEO &amp; Brand Growth</h4>
+              <p class="bracket-desc">
+                Keyword research, search-intent mapping, Rank Math on-page SEO, GA4 &amp; Search Console analytics, B2B/B2C lead generation, plus 5+ years of commercial visual production, Meta Ads, and brand identity design.
+              </p>
+              <div class="bracket-tags">
+                <span>Rank Math SEO</span><span>SEMrush</span><span>Ahrefs</span><span>GA4 &amp; GSC</span>
+                <span>B2B Lead Gen</span><span>Photoshop</span><span>Illustrator</span><span>Premiere Pro</span><span>Meta Suite</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="standards-row">
+            <div><span>01</span><strong>Clear Milestones</strong><small>Live drafts before final build</small></div>
+            <div><span>02</span><strong>Mobile-First QA</strong><small>Phone, tablet &amp; laptop tested</small></div>
+            <div><span>03</span><strong>SEO &amp; Speed</strong><small>Rank Math, schema &amp; clean code</small></div>
+            <div><span>04</span><strong>Post-Launch Help</strong><small>Easy handover &amp; guidance</small></div>
+          </div>
+        </div>
+
+        <!-- LAYER 2: CAREER & EDUCATION -->
+        <div class="layer-panel" id="layer-career" role="tabpanel">
+          <div class="career-timeline">
+            <div class="timeline-track" aria-hidden="true">
+              <div class="timeline-beam"><span class="timeline-dot"></span></div>
+            </div>
+
+            <div class="career-row">
+              <div class="career-left">
+                <h3>Social Media &amp; Digital Marketing Specialist</h3>
+                <p class="career-org">M/S Munni Trading &amp; Co. / The Chanachur Factory</p>
+              </div>
+              <div class="career-year">2021</div>
+              <div class="career-right">
+                <p>5+ years directing digital brand presence, campaign calendars, commercial product photography &amp; videography, promotional graphics, and Meta Ads lead generation in Barishal.</p>
+              </div>
+            </div>
+
+            <div class="career-row">
+              <div class="career-left">
+                <h3>B.Sc. CSE, BCC AI &amp; 600-Hr DYD Training</h3>
+                <p class="career-org">Trust University · BCC ICT Division · DYD Barishal</p>
+              </div>
+              <div class="career-year">2026</div>
+              <div class="career-right">
+                <p>Pursuing B.Sc. in CSE (HSC GPA 5.00). Completed BCC's certified <em>Artificial Intelligence for Professionals</em> (2026) and elected <strong>1st-Month Class Representative (CR)</strong> in DYD's 600-Hr Freelancing &amp; ICT 8th Batch.</p>
+              </div>
+            </div>
+
+            <div class="career-row">
+              <div class="career-left">
+                <h3>WordPress Web Developer &amp; AI Tools Specialist</h3>
+                <p class="career-org">Independent Studio · Fiverr &amp; Global Freelance</p>
+              </div>
+              <div class="career-year now">NOW</div>
+              <div class="career-right">
+                <p>Building fast WordPress &amp; WooCommerce websites, Rank Math SEO systems, and AI-assisted web portals — including the live Student ID Card Web App deployed on Render — for international clients (IELTS 6.5).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="credentials-strip">
+            <div class="cred-pill"><strong>HSC Science</strong> · Govt. Syed Hatem Ali College · GPA 5.00 (2020)</div>
+            <div class="cred-pill"><strong>SSC Science</strong> · SARS Govt. School · GPA 4.61 (2018)</div>
+            <div class="cred-pill"><strong>Best Volunteer</strong> · Lal Sabuj Society (2019)</div>
+            <div class="cred-pill"><strong>National Archery U-16</strong> · NSC Talent Hunt (2016)</div>
+          </div>
+        </div>
+
+        <!-- LAYER 3: PACKAGES & INTERACTIVE SCOPE ESTIMATOR -->
+        <div class="layer-panel" id="layer-packages" role="tabpanel">
+          <div class="mini-pkg-row">
+            <button type="button" class="mini-pkg" data-est-preset="wp-business" data-est-units="1">
+              <span class="mini-pkg-tag">Starter · 3–4 Days</span>
+              <strong>Focused Landing Page</strong>
+              <small>1 custom Elementor page + Rank Math SEO + mobile QA</small>
+            </button>
+            <button type="button" class="mini-pkg featured" data-est-preset="wp-business" data-est-units="6">
+              <span class="mini-pkg-tag">Most Popular · 5–7 Days</span>
+              <strong>Business WordPress Website</strong>
+              <small>5–7 custom pages + Keyword SEO + GA4 + security hardening</small>
+            </button>
+            <button type="button" class="mini-pkg" data-est-preset="woocommerce" data-est-units="8">
+              <span class="mini-pkg-tag">Store / App · 7–10 Days</span>
+              <strong>WooCommerce or AI Portal</strong>
+              <small>Storefront / AI web portal + CPT/ACF + 14-day support</small>
+            </button>
+          </div>
+
+          <div class="est-body-grid">
+            <div class="est-controls">
+              <label class="est-lbl">1. Core Service</label>
+              <div class="est-srv-grid">
+                <button type="button" class="est-srv active" data-service="wp-business">WordPress Business</button>
+                <button type="button" class="est-srv" data-service="woocommerce">WooCommerce Store</button>
+                <button type="button" class="est-srv" data-service="ai-webapp">AI Web App / Portal</button>
+                <button type="button" class="est-srv" data-service="seo-leadgen">SEO &amp; B2B Leads</button>
+              </div>
+
+              <div class="est-slider-row">
+                <label for="est-units" class="est-lbl">2. Pages / Templates / Units</label>
+                <span id="est-units-val" class="emerald-accent">5 Units</span>
+              </div>
+              <input type="range" id="est-units" min="1" max="20" value="5" class="est-range" />
+
+              <label class="est-lbl">3. Optional Add-Ons</label>
+              <div class="est-addons">
+                <label><input type="checkbox" id="addon-seo" checked /> Keyword Research &amp; Rank Math SEO</label>
+                <label><input type="checkbox" id="addon-leads" /> Targeted B2B/B2C Prospect List</label>
+                <label><input type="checkbox" id="addon-ai" checked /> AI Copy &amp; Visual Brand Assets</label>
+                <label><input type="checkbox" id="addon-multi" /> Multilingual / Membership (CPT &amp; ACF)</label>
+              </div>
+            </div>
+
+            <div class="est-summary">
+              <div class="est-sum-top">
+                <div>
+                  <span class="est-kicker">ESTIMATED TURNAROUND</span>
+                  <h3 id="est-out-title">WordPress Business / Portfolio Site</h3>
+                </div>
+                <strong id="est-out-days" class="est-days">5–7 Days</strong>
+              </div>
+              <ul id="est-out-list" class="est-list"></ul>
+              <div class="est-actions">
+                <a href="https://www.fiverr.com/jayedjaman_seen?public_mode=true" target="_blank" rel="noopener noreferrer" id="est-fiverr-btn" class="minimal-cta cta-accent full">Copy Brief &amp; Order on Fiverr ↗</a>
+                <button type="button" id="est-wa-btn" class="minimal-cta full">Send Brief via WhatsApp ↗</button>
+                <button type="button" id="est-copy-btn" class="minimal-cta full">Copy Scope Brief</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. MY WORK (AIRY ALTERNATING 01-05 GALLERY) ==================== -->
+    <section id="work" class="work-section">
+      <div class="work-header">
+        <div>
+          <div class="reveal-mask"><h2 class="work-title gsap-line">My <span class="gold-accent">Work</span></h2></div>
+          <p class="work-hint gsap-fade">Click any project card to test the interactive live preview across Desktop, Tablet &amp; Mobile</p>
+        </div>
+        <div class="work-arrows gsap-fade">
+          <button type="button" class="work-arrow-btn" id="work-prev" aria-label="Scroll Projects Left">←</button>
+          <button type="button" class="work-arrow-btn" id="work-next" aria-label="Scroll Projects Right">→</button>
+        </div>
+      </div>
+
+      <div class="work-track gsap-fade" id="work-track"></div>
+    </section>
+
+    <!-- ==================== 5. MY TECHSTACK (CLEAN BORDERLESS EDITORIAL LIST) ==================== -->
+    <section id="techstack" class="techstack-section">
+      <div class="techstack-clean-wrap">
+        <div class="techstack-overlay-title">
+          <span class="stack-kicker gsap-fade">CORE CAPABILITIES</span>
+          <div class="reveal-mask"><h2 class="gsap-line">MY <span class="accent-gradient">TECHSTACK</span></h2></div>
+        </div>
+
+        <div class="tech-editorial-list gsap-fade">
+          <div class="tech-group">
+            <span class="tech-group-label">Web &amp; CMS</span>
+            <p class="tech-names">WordPress · Elementor · WooCommerce · Gutenberg · Child Themes · CPT &amp; ACF</p>
+          </div>
+          <div class="tech-group">
+            <span class="tech-group-label">AI &amp; Code</span>
+            <p class="tech-names">ChatGPT · Claude · Gemini · GitHub Copilot · OpenAI Codex · HTML5 · CSS3 · JavaScript · Render Cloud</p>
+          </div>
+          <div class="tech-group">
+            <span class="tech-group-label">SEO &amp; Growth</span>
+            <p class="tech-names">Rank Math SEO · SEMrush · Ahrefs · Google Keyword Planner · GA4 · Search Console · B2B/B2C Lead Gen</p>
+          </div>
+          <div class="tech-group">
+            <span class="tech-group-label">Brand &amp; Creative</span>
+            <p class="tech-names">Photoshop · Illustrator · Canva · Premiere Pro · CapCut · Meta Business Suite · Mailchimp · Klaviyo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. CONTACT (WITH STYLISH SVG ICONS BESIDE EVERY LINK) ==================== -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="reveal-mask"><h2 class="contact-mega gsap-line">CONTACT</h2></div>
+
+        <div class="contact-grid gsap-fade">
+          <!-- Direct Contact With Icons (WhatsApp number hidden — logo + background link only) -->
+          <div class="contact-col">
+            <span class="contact-label">Direct Reach</span>
+            <div class="contact-icon-list">
+              <a href="mailto:thunderseen@gmail.com" class="contact-icon-row" id="contact-email-link">
+                <span class="c-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                </span>
+                <span class="c-text">
+                  <small>Email</small>
+                  <strong id="contact-email-text">thunderseen@gmail.com</strong>
+                </span>
+                <span class="c-ext">↗</span>
+              </a>
+
+              <a href="https://wa.me/8801307758119?text=Hi%20Jayed%2C%20I%20saw%20your%203D%20portfolio." target="_blank" rel="noopener noreferrer" class="contact-icon-row" id="contact-wa-link">
+                <span class="c-icon c-icon-emerald">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </span>
+                <span class="c-text">
+                  <strong>WhatsApp</strong>
+                  <small>Direct Message · Reply &lt; 1 hr</small>
+                </span>
+                <span class="c-ext">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Social & Freelance Profiles With Stylish Icons -->
+          <div class="contact-col">
+            <span class="contact-label">Social &amp; Freelance</span>
+            <div class="contact-icon-list">
+              <a href="https://www.fiverr.com/jayedjaman_seen?public_mode=true" target="_blank" rel="noopener noreferrer" class="contact-icon-row" id="contact-fiverr-link">
+                <span class="c-icon c-icon-emerald">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V9.5C6 6.5 7.6 4 11 4h2.5M4 10h10m-8 0v10m8-10v10m0-4h5"/><circle cx="18" cy="10" r="1.2" fill="currentColor"/></svg>
+                </span>
+                <span class="c-text"><strong>Fiverr</strong><small>Custom Offers &amp; Packages</small></span>
+                <span class="c-ext">↗</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/jayed-jaman-seen-b540b8334/" target="_blank" rel="noopener noreferrer" class="contact-icon-row">
+                <span class="c-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56c0 .95.79 1.72 1.77 1.72h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                </span>
+                <span class="c-text"><strong>LinkedIn</strong><small>Professional Network</small></span>
+                <span class="c-ext">↗</span>
+              </a>
+
+              <a href="https://github.com/JJSEEN" target="_blank" rel="noopener noreferrer" class="contact-icon-row">
+                <span class="c-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.5-1.3-1.22-1.64-1.22-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.71 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.16a10.7 10.7 0 0 1 5.6 0c2.13-1.46 3.08-1.16 3.08-1.16.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.03 0 4.32-2.64 5.28-5.15 5.56.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+                </span>
+                <span class="c-text"><strong>GitHub</strong><small>@JJSEEN · Code &amp; Builds</small></span>
+                <span class="c-ext">↗</span>
+              </a>
+
+              <a href="https://www.freelancer.com.bd/u/jayedjamans" target="_blank" rel="noopener noreferrer" class="contact-icon-row">
+                <span class="c-icon c-icon-gold">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 2L3 14h7.5L9 22l12-12h-7.5L13.5 2z"/></svg>
+                </span>
+                <span class="c-text"><strong>Freelancer</strong><small>Verified Profile</small></span>
+                <span class="c-ext">↗</span>
+              </a>
+
+              <a href="https://x.com/JayedJamanSeen" target="_blank" rel="noopener noreferrer" class="contact-icon-row">
+                <span class="c-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.59-6.64 7.59H.47l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.49 3.24H4.3z"/></svg>
+                </span>
+                <span class="c-text"><strong>X (Twitter)</strong><small>@JayedJamanSeen</small></span>
+                <span class="c-ext">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Tools -->
+          <div class="contact-col">
+            <span class="contact-label">Tools &amp; Documents</span>
+            <p class="contact-note">Open the interactive Visual + ATS Resume Studio, jump to the Scope Estimator, or manage site content from the built-in Studio Admin.</p>
+            <div class="contact-tool-btns">
+              <button type="button" class="minimal-cta cta-accent" id="open-resume-footer">Open Visual + ATS Resume</button>
+              <button type="button" class="minimal-cta" id="jump-estimator-btn">Scope Estimator &amp; Packages ↑</button>
+              <button type="button" class="minimal-cta admin-trigger-btn" id="open-admin-btn">🔒 Studio Admin Panel</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== 7. END-OF-PAGE SIGNATURE PROFILE BOX (ORIGINAL PHOTO) ==================== -->
+        <div class="end-signature-wrap gsap-fade">
+          <div class="end-signature-card">
+            <img src="assets/jayed-black.jpg" alt="Jayed Jaman Seen" class="end-sig-photo" id="sig-photo" />
+            <div class="end-sig-info">
+              <span class="end-sig-tag">PORTFOLIO AUTHOR</span>
+              <h3 id="sig-name">Jayed Jaman Seen</h3>
+              <p id="sig-role">WordPress, WooCommerce &amp; AI Web Designer</p>
+              <span class="end-sig-loc">Barishal, Bangladesh · Remote Worldwide · &copy; <span id="year"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== MODAL 1: LIVE DEVICE LAB PREVIEW ==================== -->
+  <div id="demo-modal" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-label="Interactive Live Demo">
+    <div class="modal-box modal-xl">
+      <div class="modal-head">
+        <div class="modal-head-left">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <strong id="demo-modal-title">Live Interactive Preview</strong>
+        </div>
+        <div class="device-toggle-group">
+          <button type="button" class="dev-btn active" data-vp="desktop">Desktop</button>
+          <button type="button" class="dev-btn" data-vp="tablet">Tablet</button>
+          <button type="button" class="dev-btn" data-vp="mobile">Mobile</button>
+        </div>
+        <div class="modal-head-right">
+          <a id="demo-open-ext" href="#" target="_blank" rel="noopener noreferrer" class="minimal-cta cta-sm">Open Tab ↗</a>
+          <button type="button" class="modal-close" data-close-modal="demo-modal" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="demo-stage">
+        <iframe id="demo-iframe" class="demo-frame vp-desktop" title="Live Project Demo"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: VISUAL + ATS RESUME STUDIO ==================== -->
+  <div id="resume-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Interactive Resume Studio">
+    <div class="modal-box modal-lg">
+      <div class="modal-head no-print">
+        <strong>Interactive Resume Studio (Visual + ATS)</strong>
+        <div class="resume-bar-actions">
+          <button type="button" class="dev-btn active" data-cv-fmt="visual">Visual CV</button>
+          <button type="button" class="dev-btn" data-cv-fmt="ats">ATS CV</button>
+          <button type="button" id="copy-ats-btn" class="minimal-cta cta-sm">Copy ATS</button>
+          <button type="button" id="print-cv-btn" class="minimal-cta cta-sm cta-accent">Print / PDF</button>
+          <button type="button" class="modal-close" data-close-modal="resume-modal" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="modal-scroll-body">
+        <input type="search" id="cv-search" class="cv-search-box no-print" placeholder="Search & highlight inside resume (e.g. WordPress, SEO, IELTS 6.5)..." />
+        <div id="cv-sheet" class="cv-sheet"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: BUILT-IN STUDIO ADMIN PANEL ==================== -->
+  <div id="admin-modal" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-label="Studio Admin Panel">
+    <div class="modal-box modal-lg">
+      <div class="modal-head">
+        <strong>🔒 Studio Admin Panel (Live Content &amp; 3D Model Editor)</strong>
+        <button type="button" class="modal-close" data-close-modal="admin-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-scroll-body">
+        <!-- PIN Gate -->
+        <div id="admin-lock-screen" class="admin-lock">
+          <p class="admin-note">Enter Studio PIN to edit profile info, swap your 3D <code>.glb</code> avatar, or export <code>portfolio-config.js</code> for GitHub Pages. <span class="emerald-accent">(Default PIN: 2026)</span></p>
+          <div class="admin-pin-row">
+            <input type="password" id="admin-pin-input" placeholder="Enter PIN (2026)" />
+            <button type="button" id="admin-unlock-btn" class="minimal-cta cta-accent">Unlock Editor</button>
+          </div>
+          <p id="admin-pin-err" class="admin-err"></p>
+        </div>
+
+        <!-- Unlocked Editor -->
+        <div id="admin-editor-body" class="admin-editor hidden">
+          <div class="admin-grid">
+            <label class="admin-field">
+              <span>First Name</span>
+              <input type="text" id="adm-first" />
+            </label>
+            <label class="admin-field">
+              <span>Last Name</span>
+              <input type="text" id="adm-last" />
+            </label>
+            <label class="admin-field full-span">
+              <span>Role / Tagline</span>
+              <input type="text" id="adm-role" />
+            </label>
+            <label class="admin-field">
+              <span>Email</span>
+              <input type="email" id="adm-email" />
+            </label>
+            <label class="admin-field">
+              <span>WhatsApp Number (digits)</span>
+              <input type="text" id="adm-wa" />
+            </label>
+            <label class="admin-field full-span">
+              <span>About Bio</span>
+              <textarea id="adm-bio" rows="3"></textarea>
+            </label>
+            <label class="admin-field full-span">
+              <span>3D Avatar .GLB Path or URL (e.g. assets/mascot.glb or your Avaturn / Ready Player Me .glb)</span>
+              <input type="text" id="adm-glb" />
+            </label>
+            <label class="admin-field full-span">
+              <span>Or Preview a Local .GLB File Immediately</span>
+              <input type="file" id="adm-glb-file" accept=".glb,.gltf" />
+            </label>
+          </div>
+
+          <div class="admin-actions">
+            <button type="button" id="adm-save-btn" class="minimal-cta cta-accent">Save Live Changes</button>
+            <button type="button" id="adm-export-btn" class="minimal-cta">Export portfolio-config.js ↓</button>
+            <button type="button" id="adm-reset-btn" class="minimal-cta">Reset Defaults</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast no-print" role="status" aria-live="polite"></div>
+
+  <!-- Editable Portfolio Config -->
+  <script src="portfolio-config.js"></script>
+  <!-- Lenis Ultra-Smooth Inertia Scrolling -->
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <!-- GSAP 3 + ScrollTrigger synced with Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
